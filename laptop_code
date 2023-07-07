@@ -1,0 +1,28 @@
+import rospy
+import socket
+from geometry_msgs.msg import Twist
+
+UDP_IP = '192.168.100.50'
+UDP_PORT = 1234
+
+def send_message(message):
+    # Convert the Twist message to a string representation
+    message_str = f"linear.x: {message.linear.x}, angular.z: {message.angular.z}"
+
+    # Create a UDP socket and send the message to the ESP32
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    sock.sendto(message_str.encode(), (UDP_IP, UDP_PORT))
+    sock.close()
+
+def teleop_callback(message):
+    send_message(message)
+
+if __name__ == '__main__':
+    rospy.init_node('udp_broadcaster')
+
+    # Subscribe to the teleop_twist_keyboard topic
+    rospy.Subscriber('/cmd_vel', Twist, teleop_callback)
+
+    rospy.spin()
+
