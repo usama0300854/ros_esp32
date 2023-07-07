@@ -8,7 +8,9 @@ then open another terminal and run rosrun teleop_twist_keyboard teleop_twist_key
 1: create a new folder named as teleop_ws. inside create a new folder src.
 2: open terminal and cd into teleop_ws and write catkin_make
 3: cd into src 
+
 4: catkin_create_pkg my_package std_msgs rospy. (this will make a folder name my_package in src)
+
 5: go into that folder(my_package) and open src, you should paste your laptop code here which should be named as teleop_twist_to_esp32.py (inside src folder).
 5.1: open terminal cd to where u paste teleop_twist_to_esp32.py file and run this command : chmod +x teleop_twist_to_esp32.py
 
