@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "Zbabar 2.4G";
-const char* password = "sdsrig25";
+const char* ssid = "change me";
+const char* password = "change me";
 
 WiFiUDP udp;
 unsigned int localUdpPort = 1234;  // Local port to listen for UDP messages
