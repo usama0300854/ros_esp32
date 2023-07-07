@@ -1,5 +1,5 @@
 # ros_esp32
-this is the code from which you can control a differential robot from your laptop running ros.the esp32 will receive commands from udp.
+this is the code from which you can control a differential robot from your laptop running ros.the esp32 will receive commands over udp.
 
 
 first open a terminal in your laptop can run roscore command
@@ -34,7 +34,7 @@ catkin_install_python(PROGRAMS src/teleop_twist_to_esp32.py
 
 10: then write this command : rosrun my_package teleop_twist_to_esp32.py
 
-and you are done. now from step 6 you will send commands to teleop_twist_to_esp32.py and teleop_twist_to_esp32.py will send commands to esp32 via udp.
+and you are done. now from step 6 you will send commands to teleop_twist_to_esp32.py and teleop_twist_to_esp32.py will send commands to esp32 over udp.
 ENJOY!
 
 i am working on esp32 code to implement pid control by using encoders.and also to send encoder values back to pc for odometry and visualize my robot in rviz.
